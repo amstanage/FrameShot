@@ -1,48 +1,84 @@
+<div align="center">
+
 # FrameShot
 
-A client-side web app that frames your photos with elegant borders and displays EXIF metadata. No server, no uploads — everything runs in your browser.
+**Frame your photos. Show your settings.**
+
+A client-side web app that wraps your photos in beautiful frames with EXIF metadata baked in.
+No server, no uploads, no tracking — everything runs in your browser.
+
+---
+
+`CLEAN` | `CINEMA` | `FILM STRIP` | `POLAROID` | `EDITORIAL`
+
+---
+
+</div>
+
+## Frame Styles
+
+| Style | Look | Metadata |
+|-------|------|----------|
+| **Clean** | Off-white gallery print | Camera + lens left, exposure right, thin divider |
+| **Cinema** | Matte black with REC dot | Monospace uppercase, pipe-separated, ARRI-style |
+| **Film Strip** | 35mm negative with sprocket holes | Amber rebate text, Kodak edge-print aesthetic |
+| **Polaroid** | Warm cream, wide bottom border | Handwritten Caveat font, slight rotation |
+| **Editorial** | Pure white, bold typography | Large display camera name, red accent bar, 3-col exposure grid |
 
 ## Features
 
-- **5 Frame Styles**
-  - **Clean** — Off-white gallery print with metadata caption
-  - **Cinema** — Dark matte frame with monospace ARRI-style overlay and REC indicator
-  - **Film Strip** — 35mm film negative with sprocket holes and amber rebate text
-  - **Polaroid** — Classic instant print with handwritten-style metadata
-  - **Editorial** — Magazine layout with bold typography and red accent bar
+| | |
+|---|---|
+| **Multi-Photo** | Upload batches, navigate with thumbnails or `←` `→` keys, download all at once |
+| **Aspect Ratio** | Crop to `Original` `1:1` `4:5` `3:4` `16:9` `9:16` |
+| **RAW Support** | DNG, CR2, CR3, NEF, ARW, ORF, RW2, RAF via embedded preview extraction |
+| **EXIF** | Camera, lens, focal length, aperture, shutter speed, ISO, date |
+| **WYSIWYG** | Canvas-based rendering — preview and export are pixel-identical |
+| **Private** | Fully client-side. Your photos never leave your machine |
 
-- **EXIF Extraction** — Reads camera, lens, focal length, aperture, shutter speed, ISO, and date from your photos
-- **Multi-Photo Support** — Upload multiple photos, navigate with thumbnails or arrow keys, batch download all
-- **Aspect Ratio Crop** — Original, 1:1, 4:5, 3:4, 16:9, 9:16
-- **RAW/DNG Support** — Accepts DNG, CR2, CR3, NEF, ARW, ORF, RW2, RAF, and more via embedded preview extraction
-- **Pixel-Perfect Export** — Canvas-based rendering ensures the download is identical to the preview
-- **Fully Client-Side** — No data leaves your browser
+## Quick Start
 
-## Usage
-
-Open `index.html` in a browser, or serve locally:
-
-```
+```bash
+# no install, no build, no dependencies
 python3 -m http.server 8080
+# open http://localhost:8080
 ```
 
-Then visit `http://localhost:8080`.
+Or just open `index.html` directly.
 
-1. Drop photos (or click to browse)
-2. Pick a frame style and aspect ratio
-3. Download the framed image
+**Drop photos → pick a style → download.**
 
-## Tech Stack
-
-- HTML, CSS, JavaScript — no frameworks, no build tools
-- [exifr](https://github.com/MikeKovarik/exifr) — EXIF parsing (CDN)
-- Google Fonts — Inter, JetBrains Mono, Caveat, DM Sans
-
-## File Structure
+## Tech
 
 ```
 FrameShot/
-├── index.html    — Page structure and CDN links
-├── styles.css    — Dark theme UI, responsive layout
-└── app.js        — Upload, EXIF parsing, canvas rendering, export
+├── index.html    — markup + CDN links
+├── styles.css    — dark theme UI
+└── app.js        — upload, EXIF, canvas rendering, export
 ```
+
+Three files. Zero build steps. Vanilla HTML/CSS/JS.
+
+| Dependency | Role | Loaded via |
+|------------|------|------------|
+| [exifr](https://github.com/MikeKovarik/exifr) | EXIF parsing | CDN |
+| [Inter](https://rsms.me/inter/) | UI typography | Google Fonts |
+| [JetBrains Mono](https://www.jetbrains.com/lp/mono/) | EXIF values / Cinema style | Google Fonts |
+| [Caveat](https://fonts.google.com/specimen/Caveat) | Polaroid handwriting | Google Fonts |
+| [DM Sans](https://fonts.google.com/specimen/DM+Sans) | Editorial display type | Google Fonts |
+
+## Supported Formats
+
+**Standard** — JPEG, PNG, WebP, TIFF
+
+**RAW** — DNG, CR2, CR3, NEF, ARW, ORF, RW2, RAF, PEF, SRW
+
+> RAW files use the embedded JPEG preview for display. EXIF data is extracted at full fidelity.
+
+---
+
+<div align="center">
+
+Made with FrameShot
+
+</div>
