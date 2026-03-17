@@ -20,22 +20,12 @@ const ASPECT_RATIOS = {
 };
 
 /* ============================================
-   2. DOM REFERENCES
+   2. DOM REFERENCES (resolved in init)
    ============================================ */
 
 const $ = (sel) => document.querySelector(sel);
-const uploadView = $('#upload-view');
-const uploadZone = $('#upload-zone');
-const fileInput = $('#file-input');
-const workspace = $('#workspace');
-const previewCanvas = $('#preview-canvas');
-const photoStrip = $('#photo-strip');
-const photoCounter = $('#photo-counter');
-const btnDownload = $('#btn-download');
-const btnDownloadAll = $('#btn-download-all');
-const btnAdd = $('#btn-add');
-const btnNew = $('#btn-new');
-const toastContainer = $('#toast-container');
+let uploadView, uploadZone, fileInput, workspace, previewCanvas;
+let photoStrip, photoCounter, btnDownload, btnDownloadAll, btnAdd, btnNew, toastContainer;
 
 /* ============================================
    3. EXIF PARSING & FORMATTING
@@ -782,6 +772,20 @@ function esc(str) {
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Resolve DOM references
+    uploadView = $('#upload-view');
+    uploadZone = $('#upload-zone');
+    fileInput = $('#file-input');
+    workspace = $('#workspace');
+    previewCanvas = $('#preview-canvas');
+    photoStrip = $('#photo-strip');
+    photoCounter = $('#photo-counter');
+    btnDownload = $('#btn-download');
+    btnDownloadAll = $('#btn-download-all');
+    btnAdd = $('#btn-add');
+    btnNew = $('#btn-new');
+    toastContainer = $('#toast-container');
+
     // Upload
     uploadZone.addEventListener('dragover', handleDragOver);
     uploadZone.addEventListener('dragleave', handleDragLeave);
